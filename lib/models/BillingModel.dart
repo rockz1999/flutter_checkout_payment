@@ -22,13 +22,13 @@ class BillingModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      "addressLine1": this.addressLine1,
-      "addressLine2": this.addressLine2,
-      "postcode": this.postcode,
-      "country": this.country,
-      "city": this.city,
-      "state": this.state,
-      "phoneModel": this.phoneModel.toMap()
+      'addressLine1': addressLine1,
+      'addressLine2': addressLine2,
+      'postcode': postcode,
+      'country': country,
+      'city': city,
+      'state': state,
+      'phoneModel': phoneModel.toMap()
     };
   }
 }

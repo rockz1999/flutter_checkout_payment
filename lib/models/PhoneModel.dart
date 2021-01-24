@@ -8,8 +8,8 @@ class PhoneModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      "countryCode": this.countryCode,
-      "number": this.number
+      'countryCode': countryCode,
+      'number': number
     };
   }
 }
