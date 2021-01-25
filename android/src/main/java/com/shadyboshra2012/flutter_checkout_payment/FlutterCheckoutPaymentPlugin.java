@@ -156,6 +156,7 @@ public class FlutterCheckoutPaymentPlugin implements FlutterPlugin, MethodCallHa
                     // Generate the token.
                     mCheckoutAPIClient.generateToken(cardTokenisationRequest);
                 } catch (Exception ex) {
+                    System.out.println("Error during generating -- " + GENERATE_TOKEN_ERROR + "  " + ex.getMessage() + "  " + ex.getLocalizedMessage());
                     // Return error.
                     result.error(GENERATE_TOKEN_ERROR, ex.getMessage(), ex.getLocalizedMessage());
                 }
@@ -199,14 +200,17 @@ public class FlutterCheckoutPaymentPlugin implements FlutterPlugin, MethodCallHa
 
         @Override
         public void onError(CardTokenisationFail error) {
+            System.out.println("Error while generating token -- " + error.getErrorCodes().toString() + "  " + error.getErrorType() + "  " + error.getRequestId());
             // your error
             pendingResult.error(error.getErrorCodes().toString(), error.getErrorType(), error.getRequestId());
         }
 
         @Override
         public void onNetworkError(VolleyError error) {
+            System.out.println("Network Error -- " + error.networkResponse.statusCode + "  " + error.getMessage() + "  " +
+                    error.getNetworkTimeMs());
             // your network error
-            pendingResult.error(error.networkResponse.statusCode + "", error.getMessage(),
+            pendingResult.error("Network Error -- " + error.networkResponse.statusCode + "", error.getMessage(),
                     error.getNetworkTimeMs());
         }
     };

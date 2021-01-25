@@ -9,7 +9,7 @@ import 'package:flutter_checkout_payment/flutter_checkout_payment.dart';
 import 'package:flutter_checkout_payment/models/BillingModel.dart';
 import 'package:flutter_checkout_payment/models/PhoneModel.dart';
 
-import 'Keys.dart';
+// import 'Keys.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> initPaymentSDK() async {
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      bool isSuccess = await FlutterCheckoutPayment.init(key: "${Keys.TEST_KEY}");
+      bool isSuccess = await FlutterCheckoutPayment.init(key: "pk_87a2527e-7e81-40a0-8805-46638ea7aa5a", environment: Environment.LIVE);
       //bool isSuccess =  await FlutterCheckoutPayment.init(key: "${Keys.TEST_KEY}", environment: Environment.LIVE);
       print(isSuccess);
       if (mounted) setState(() => _isInit = "true");
